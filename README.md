@@ -1,2 +1,2 @@
 # first-practice
-初学Java联系项目和分析
+初学Java练习代码
