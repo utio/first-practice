@@ -8,3 +8,16 @@
  temp[array.length]=9;
  array=temp;
 //删除元素
+ int[] array = new int[]{14,2,3,434,5,65,76,8,9};
+ int[] temp = new int[array.length];
+ int num =0;int t=0;
+ while(num<array.length){
+     switch(array[num]){
+         case 5:num++;break;
+         default:
+             temp[t]=array[num];
+             t++;
+             num++;
+     }
+ }
+ array=temp;
