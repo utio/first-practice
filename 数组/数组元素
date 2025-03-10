@@ -1,0 +1,9 @@
+//数组扩容
+ int[] array = new int[]{14,2,3,434,5,65,76,8,9};
+        //数组扩容为两倍,是建立一个二倍长度的数组，把这个数组的地址值赋给原来的
+        int[] temp = new int[array.length<<1]; //此时数组的长度为二倍
+        for(int i=0; i<array.length; i++){
+            temp[i]=array[i];
+        }
+        temp[array.length]=9;
+        array=temp;
