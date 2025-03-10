@@ -1,0 +1,27 @@
+ //回形数
+        int num = 1;
+        int[][] arry = new int[4][4];
+        int left = 0, right = 3, top = 0, bottom =3;
+
+        while(left <= right && top <= bottom){
+            //顶部加
+            for(int i=left; i<=right; i++){
+                arry[top][i] = num++;
+            }
+            top++;
+            //右侧加
+            for(int i=top; i<=bottom; i++){
+                arry[i][right] = num++;
+            }
+            right--;
+            //底部加
+            for(int i= right; i>=left; i--){
+                arry[bottom][i] = num++;
+            }
+            bottom--;
+            //左侧加
+            for(int i=bottom; i>=top; i--){
+                arry[i][left] = num++;
+            }
+            left++;
+        }
