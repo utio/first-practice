@@ -1,0 +1,31 @@
+ //选择排序：不稳定
+        int[] arry = new int[]{3,4,1,2,34};
+        for(int i=0; i<arry.length-1; i++){
+            for(int j=i+1; j<arry.length; j++){
+                    //由小变大
+                if(arry[i]>arry[j]){
+                    int temp = arry[i];
+                    arry[i] = arry[j];
+                    arry[j] = temp;
+                }
+                outPut(arry);
+                System.out.println();
+            }
+        }
+        outPut(arry);
+        
+        //冒泡法：稳定，选一个中间变量，存储数组上一个元素的值，将最值的数字排在最后
+        int[] arry1 = new int[]{3,4,1,2,34};
+        for(int i=0; i<arry1.length-1; i++) {
+            for (int j = i + 1; j < arry1.length; j++) {
+                int current = arry1[i];
+                if (current > arry1[j]) {
+                    var tmp = arry1[j];
+                    arry1[j] = current;
+                    arry1[i] = tmp;
+                }
+                outPut(arry1);
+                System.out.println();
+            }
+        }
+        outPut(arry1); //选择排序和冒泡排序结果是一样的，但是效率不同
