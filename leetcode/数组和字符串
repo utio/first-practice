@@ -1,4 +1,5 @@
 //寻找数组中心索引，索引数左右数组元素和相同，没有返回-1
+//从左开始求和，和的2背加上索引数字为总和
 class Solution {
     public int pivotIndex(int[] nums) {
         int totle = 0; int index=0;
