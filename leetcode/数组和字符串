@@ -50,3 +50,31 @@ public static void main(String[] args){
         }
         array = arrayList.toArray(new int[arrayList.size()][]);  //将列表转化成列表长度的整数数组
     }
+//将数组顺时针旋转，顺时针旋转先变对角元素，后再进行列变换
+public static void main(String[] args){
+        int[][] array = new int[][]{
+                {1,2,3,4},
+                {2,5,7,6},
+                {0,2,1,8},
+                {12,3,45,6}
+        };
+        //对角元素转置,转置完正好是需要矩阵的反方向排列
+        for(int i=0; i<array.length; i++){
+            for(int j=i+1; j<array[i].length; j++){
+                int temp = array[i][j];
+                array[i][j] = array[j][i];
+                array[j][i] = temp;
+            }
+        }
+        //列变化
+        int L=0,R=array.length-1;
+        while(L <= R){
+            for(int j=0; j<array.length; j++){
+                int temp = array[j][L];
+                array[j][L] = array[j][R];
+                array[j][R] = temp ;
+            }
+            L++; R--;
+        }
+        outPutTwo(array);
+    }
