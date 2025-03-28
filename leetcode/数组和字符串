@@ -33,3 +33,20 @@ class Solution {
         return left;
     }
 }
+//把几个区间做包含运算，最后得到不重合的区间
+public static void main(String[] args){
+       // int[][] array ={{1,3},{2,6},{8,10},{15,18}};
+        int[][] array ={{1,4},{0,4}};
+        Arrays.sort(array, (a, b) -> Integer.compare(a[0], b[0]));  //这是一个Lambda表达式，用来比较array的第一个元素的大小
+        List<int[]> arrayList = new ArrayList<>();   //建立一个新的列表，用来储存区间
+        for(int i=0; i<array.length; ++i){
+            int L = array[i][0]; int R = array[i][1];
+            //获取list最后一个元素和原来的数组的左侧元素进行比较，小了直接添加进列表，大了比较右侧元素大小，即用排序后的数组的前一个的右区间和后一个左区间比较
+            if(arrayList.size()==0 || arrayList.get(arrayList.size()-1)[1] < L){
+                arrayList.add(new int[]{L,R});
+            }else{
+                arrayList.get(arrayList.size()-1)[1] = Math.max(arrayList.get(arrayList.size()-1)[1],R); //合并两个区间
+            }
+        }
+        array = arrayList.toArray(new int[arrayList.size()][]);  //将列表转化成列表长度的整数数组
+    }
