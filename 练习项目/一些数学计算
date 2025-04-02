@@ -1,0 +1,165 @@
+package day.five;
+
+import java.awt.print.PrinterGraphics;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
+
+public class mathProblem {
+    public static int add(int x, int y){
+        return x + y;
+    }
+    //求一个列表所有元素的和
+    public static int listSum(List<Integer> list){
+        int sum = 0;
+        for(Integer i : list){
+            sum += i;
+        }
+        return sum;
+    }
+    //求数的阶乘
+    public static int factorial(int x){
+        int mul = 1;
+        for(int i = 1; i <= x; i++){
+            mul *= i;
+        }
+        return mul;
+    }
+    /**
+     * 找出给定num所有的因数
+     * @param num
+     * @return
+     */
+    public static List<Integer> factor(int num){
+        List<Integer> list = new ArrayList<Integer>();
+        for(int i = 1; i < num; ++i){
+            if(num % i == 0){
+                list.add(i);
+            }
+        }
+        return list;
+    }
+    /**
+     * 找出给定num所有的因数
+     * @param num
+     * @return
+     */
+    public static List<Integer> factor1(int num){
+        List<Integer> list = new ArrayList<Integer>();
+        for(int i = 2; i < num; ++i){
+            if(num % i == 0){
+                list.add(i);
+            }
+        }
+        return list;
+    }
+
+    public static int numSum(int num){
+        int sum = 0;
+        for(int i = 1; i <= num; i++){
+            sum += i;
+        }
+        return sum;
+    }
+
+    /**
+     * 找出整数是几位整数
+     * @param num
+     * @return
+     */
+    public static int digitNum(int num){
+        int digit = 0;
+        do {
+            num /= 10;
+            digit++;
+        } while (num != 0);
+        return digit;
+    }
+
+    /**
+     * 定义三位数，求所有位的阶乘的和
+     * @param num
+     * @return
+     */
+    public static int threeDigitSum(int num){
+        if(num/1000 != 0){
+            System.out.println("输入了超出三位数字");
+        }
+        int one, two, three;
+        three = num/100;
+        two = (num%100)/10;
+        one = num%10;
+        System.out.println(one +" " + two +" "+ three);
+        return (factorial(one) + factorial(two) + factorial(three));
+    }
+
+    /**
+     * 如果整数 A 的全部因子（包括 1，不包括 A 本身）之和等于 B，
+     * 且整数 B 的全部 因子包括 1，不包括 B本身）之和等于 A，则称
+     * 整数 A\B 是一对亲密数。求 3000 以内的全部亲密数
+     * @param num
+     * @return
+     */
+    public static List<int[]> intemateNum(int num){
+        List<int []> list = new ArrayList<>();
+        for(int i = 1; i <= num; i++){
+            int A = listSum(factor(i));  //数字i相关因数的和
+           // System.out.print(i + " " + A + "," + listSum(factor(A)) + ";" + "\n");
+            if(i == listSum(factor(A))){
+                list.add(new int[]{i,A});
+                i = A + 1;
+            }
+        }
+        //去除相同的数
+        int len = 0;
+        while(len<list.size()){
+            if(list.get(len)[0] == list.get(len)[1]){
+                list.remove(len);
+            }else{
+                len++;
+            }
+        }
+        return list;
+    }
+    //判断数字是否为质数
+    public static boolean checkNum(int num){
+        /*List<Integer> list = factor(num);
+        for(int temp : list){
+            System.out.print(temp);
+        }*/
+        if(factor1(num).isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    /**
+     * 任何一个大于 6 的偶数，都能分解成两个质数的和。要求输入 一个整数，输出这个
+     * 数能被分解成哪两个质数的和。
+     * @param num
+     */
+    public static void printNum(int num){
+        if(num%2 != 0){
+            System.out.println("输入的数不是偶数");
+        }else{
+            for(int i = 1; i <= num/2; i++){
+                if(checkNum(i) && checkNum(num - i)){
+                    System.out.println(num + "可以由两个质数" + i + "+" + (num-i)+"来表示");
+                }
+            }
+        }
+    }
+    public static void main(String[] args) {
+        /*List<Integer> list = factor(100);
+        for(Integer i : list){
+            System.out.println(i);
+        }*/
+        //System.out.println(digitNum(900));
+        // System.out.println(threeDigitSum(132));
+        List<int[]> list = intemateNum(3000);
+        for(int[] arr : list){
+            System.out.println(arr[0] + " " + arr[1]);
+        }
+        printNum(6);
+    }
+}
