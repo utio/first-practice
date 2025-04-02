@@ -14,7 +14,7 @@ public class mathProblem {
 
 
     /**
-     * 找出给定num所有的因数，包括1，但不包括自身
+     * 找出给定num所有的因数，wantFirst为1表示因数包括1，值为2，表示因数不包括1
      * @param num
      * @return
      */
