@@ -28,20 +28,7 @@ public class mathProblem {
         return list;
     }
 
-    /**
-     * 找出给定num所有的因数，不包括1和自身
-     * @param num
-     * @return
-     */
-    public static List<Integer> factor1(int num){
-        List<Integer> list = new ArrayList<Integer>();
-        for(int i = 2; i < num; ++i){
-            if(num % i == 0){
-                list.add(i);
-            }
-        }
-        return list;
-    }
+
 
 
     /**
@@ -54,7 +41,7 @@ public class mathProblem {
     public static List<int[]> intemateNum(int num){
         List<int []> list = new ArrayList<>();
         for(int i = 1; i <= num; i++){
-            int A = listSum(factor(i));  //数字i相关因数的和
+            int A = listSum(factor(i，1));  //数字i相关因数的和
            // System.out.print(i + " " + A + "," + listSum(factor(A,1)) + ";" + "\n");
             if(i == listSum(factor(A,1))){
                 list.add(new int[]{i,A});
