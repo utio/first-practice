@@ -2,9 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class mathProblem {
-    public static int add(int x, int y){
-        return x + y;
-    }
+
     //求一个列表所有元素的和
     public static int listSum(List<Integer> list){
         int sum = 0;
@@ -13,16 +11,10 @@ public class mathProblem {
         }
         return sum;
     }
-    //求数的阶乘
-    public static int factorial(int x){
-        int mul = 1;
-        for(int i = 1; i <= x; i++){
-            mul *= i;
-        }
-        return mul;
-    }
+
+
     /**
-     * 找出给定num所有的因数
+     * 找出给定num所有的因数，包括1，但不包括自身
      * @param num
      * @return
      */
@@ -35,8 +27,9 @@ public class mathProblem {
         }
         return list;
     }
+
     /**
-     * 找出给定num所有的因数
+     * 找出给定num所有的因数，不包括1和自身
      * @param num
      * @return
      */
@@ -50,44 +43,6 @@ public class mathProblem {
         return list;
     }
 
-    public static int numSum(int num){
-        int sum = 0;
-        for(int i = 1; i <= num; i++){
-            sum += i;
-        }
-        return sum;
-    }
-
-    /**
-     * 找出整数是几位整数
-     * @param num
-     * @return
-     */
-    public static int digitNum(int num){
-        int digit = 0;
-        do {
-            num /= 10;
-            digit++;
-        } while (num != 0);
-        return digit;
-    }
-
-    /**
-     * 定义三位数，求所有位的阶乘的和
-     * @param num
-     * @return
-     */
-    public static int threeDigitSum(int num){
-        if(num/1000 != 0){
-            System.out.println("输入了超出三位数字");
-        }
-        int one, two, three;
-        three = num/100;
-        two = (num%100)/10;
-        one = num%10;
-        System.out.println(one +" " + two +" "+ three);
-        return (factorial(one) + factorial(two) + factorial(three));
-    }
 
     /**
      * 如果整数 A 的全部因子（包括 1，不包括 A 本身）之和等于 B，
