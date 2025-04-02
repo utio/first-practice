@@ -18,7 +18,7 @@ public class mathProblem {
      * @param num
      * @return
      */
-    public static List<Integer> factor(int num){
+    public static List<Integer> factor(int num, int wantFirst){
         List<Integer> list = new ArrayList<Integer>();
         for(int i = 1; i < num; ++i){
             if(num % i == 0){
@@ -55,8 +55,8 @@ public class mathProblem {
         List<int []> list = new ArrayList<>();
         for(int i = 1; i <= num; i++){
             int A = listSum(factor(i));  //数字i相关因数的和
-           // System.out.print(i + " " + A + "," + listSum(factor(A)) + ";" + "\n");
-            if(i == listSum(factor(A))){
+           // System.out.print(i + " " + A + "," + listSum(factor(A,1)) + ";" + "\n");
+            if(i == listSum(factor(A,1))){
                 list.add(new int[]{i,A});
                 i = A + 1;
             }
@@ -80,7 +80,7 @@ public class mathProblem {
         for(int temp : list){
             System.out.print(temp);
         }*/
-        if(factor1(num).isEmpty()){
+        if(factor(num,2).isEmpty()){
             return true;
         }else{
             return false;
