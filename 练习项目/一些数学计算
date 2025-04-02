@@ -72,6 +72,8 @@ public class mathProblem {
         }
         return list;
     }
+
+
     //判断数字是否为质数
     public static boolean checkNum(int num){
         /*List<Integer> list = factor(num);
