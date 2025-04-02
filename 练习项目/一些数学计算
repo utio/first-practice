@@ -20,7 +20,7 @@ public class mathProblem {
      */
     public static List<Integer> factor(int num, int wantFirst){
         List<Integer> list = new ArrayList<Integer>();
-        for(int i = 1; i < num; ++i){
+        for(int i = wantFirst; i < num; ++i){
             if(num % i == 0){
                 list.add(i);
             }
